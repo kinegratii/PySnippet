@@ -3,7 +3,7 @@
 """
 import json
 
-def obj_dict(obj):
+def obj2dict(obj):
     # 基本数据类型，直接返回
     if not hasattr(obj,'__dict__'):
         return obj
@@ -12,16 +12,16 @@ def obj_dict(obj):
         if k.startswith('-'):
             continue
         if isinstance(v,list):
-            ele = [obj_dict(item) for item in v]
+            ele = [obj2dict(item) for item in v]
         else:
-            ele = obj_dict(v)
+            ele = obj2dict(v)
         res[k] = ele
     return res
 
 class NestedObjJsonEncoder(json.JSONEncoder):
 
     def default(self, obj):
-        return obj_dict(obj)
+        return obj2dict(obj)
 
 
 def main():
