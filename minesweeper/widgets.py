@@ -1,9 +1,6 @@
 #coding=utf8
 
-try:
-    import tkinter as tk
-except ImportError:
-    import Tkinter as tk
+import Tkinter as tk
     
 class CounterLabel(tk.Label):
     """A Label showing a integer.Change its value by calling functions.
