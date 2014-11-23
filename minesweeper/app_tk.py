@@ -21,18 +21,13 @@ from widgets import CounterLabel
 from widgets import TimerLabel
 from widgets import CustomMapDialog
 from data import LevelMapConfig
-
-RESOUCE_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'resource')
-
-class AppConfig(object):
-    GIT_HOMEPAGE = 'http://git.oschina.net/kinegratii/minesweeper'
-    FULL_APP_NAME = 'Minesweeper v1.0.2'
+import config
 
 class App(tk.Frame):
     
     def __init__(self):
         tk.Frame.__init__(self)
-        self.master.title(AppConfig.FULL_APP_NAME)
+        self.master.title(config.APP_FULL_NAME)
         self.master.resizable(False, False)
         self.pack(expand=tk.NO,fill=tk.BOTH)
         self.create_top_menu()
@@ -91,13 +86,13 @@ class App(tk.Frame):
         self.quit()
     
     def _project_home_handler(self):
-        webbrowser.open_new_tab(AppConfig.GIT_HOMEPAGE)
+        webbrowser.open_new_tab(config.GITHUB_HOME)
         
     def _about_hander(self):
         self.display_file_text('关于', 'project.txt')
         
     def display_file_text(self, title, filename, encoding=None):
-            fn = os.path.join(RESOUCE_DIR, filename)
+            fn = os.path.join(config.RESOUCE_DIR, filename)
             textView.view_file(self, title, fn, encoding)        
     
 class GameFrame(tk.Frame):
