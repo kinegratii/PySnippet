@@ -41,7 +41,7 @@ def main():
     print json.dumps(b,cls=NestedObjJsonEncoder)
 
     #[{"stu": {"age": 10, "name": "fe"}, "name": "bob"}, {"stu": {"age": 20, "name": "by"}, "name": "nincy"}]
-    print json.dumps([b,b1], cls=NestedObjJsonEncoder)
+    print json.dumps([b,b1], default=obj2dict)
 
 if __name__ == '__main__':
     main()
