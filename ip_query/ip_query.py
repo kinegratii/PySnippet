@@ -7,6 +7,10 @@ import Queue
 from Tkinter import *
 import tkMessageBox
 
+
+class Event(object):
+    REQUEST_COMPLETE = '<<Complete>>'
+
 class App(Frame):
     def __init__(self):
         Frame.__init__(self)
@@ -37,7 +41,7 @@ class App(Frame):
         Entry(self, textvariable=self.data['isp']).grid(row=8, column=1, columnspan=4)
         self.query_btn = Button(self, text='查询', command=self.query)
         self.query_btn.grid(row=9, column=0, columnspan=5, sticky=N+E+S+W)
-        self.bind('<<Complete>>', self.onComplete)
+        self.bind(Event.REQUEST_COMPLETE, self.on_complete)
 
     def query(self):
         self.data['validate_msg'].set('')
@@ -51,7 +55,7 @@ class App(Frame):
         threading.Thread(target=self.request_ip_address,args=(ip,)).start()
         data = self.request_ip_address(ip)
 
-    def onComplete(self, event):
+    def on_complete(self, event):
         self.query_btn['state'] = NORMAL
         data = self.q.get()
         if data.get('code',-1) == 0:
@@ -67,14 +71,14 @@ class App(Frame):
         url = 'http://ip.taobao.com/service/getIpInfo.php?ip={ip}'.format(ip=ip)
         req = urllib2.Request(url)
         try:
-            responseStr = urllib2.urlopen(req)
+            response_str = urllib2.urlopen(req)
             if responseStr:
-                res = json.load(responseStr)           
+                res = json.load(response_str)           
         except Exception:
             pass
         self.q.put(res)
         try:
-            self.event_generate('<<Complete>>',when='tail')
+            self.event_generate(Event.REQUEST_COMPLETE, when='tail')
         except TclError:
             pass
 

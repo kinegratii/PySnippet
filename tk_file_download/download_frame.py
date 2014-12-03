@@ -8,6 +8,10 @@ import urllib
 import threading
 import Queue
 import tkMessageBox
+
+
+class Event(object):
+    REFLASH = '<<Reflash>>'
  
 class MWindow(Frame):
     def __init__(self):
@@ -32,7 +36,7 @@ class MWindow(Frame):
         self.scale.grid(row=2, column=0, columnspan=10, sticky = W+E+N+S)
         #按钮
         Button(self, text='下载', command=self.download).grid(row=3, column=3, columnspan=4, sticky = W+E+N+S)
-        self.bind('<<reflash>>',self.on_processing)
+        self.bind(Event.REFLASH,self.on_processing)
         
     def on_processing(self,event):
         self.scale.set(cq.get())
@@ -62,7 +66,7 @@ def putPercent(downloaded, data_size,file_size):
         perc = 100
     cq.put(perc)
     try:
-        mw.event_generate('<<reflash>>',when='tail')
+        mw.event_generate(Event.REFLASH, when='tail')
     except TclError:
         pass
  
