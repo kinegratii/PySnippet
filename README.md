@@ -1,11 +1,13 @@
 # PySnippet
 
-*Last Updated on 27th Nov.2014*
+*Last Updated on 4th Dec.2014*
 
 ## Python
 
 
 Python (Python) is a dynamic interpreted programming language. Python can be ran on Windows, UNIX, MAC and other operating systems, can also be used on Java, .NET development platform.
+
+### Python Guide
 
 The following reference links collects many books/blogs/websites for python guide.
 
@@ -14,6 +16,8 @@ The following reference links collects many books/blogs/websites for python guid
 * [BeginnersGuide/NonProgrammers - Python Wiki](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
 
 * [Offical Python Guide](https://docs.python.org/2/tutorial/index.html)
+
+### tkinter/Tkinter
 
 The following is specifically for a reference for tkinter.
 
