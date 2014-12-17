@@ -1,5 +1,6 @@
 #coding=utf8
 
+import re
 import json
 import urllib2
 import threading
@@ -58,7 +59,7 @@ class App(Frame):
     def on_complete(self, event):
         self.query_btn['state'] = NORMAL
         data = self.q.get()
-        if data.get('code',-1) == 0:
+        if data and data.get('code',-1) == 0:
             address_dict = data['data']
             for i in self.item[0:5]:
                 self.data[i].set(address_dict[i])
@@ -72,15 +73,15 @@ class App(Frame):
         req = urllib2.Request(url)
         try:
             response_str = urllib2.urlopen(req)
-            if responseStr:
+            if response_str:
                 res = json.load(response_str)           
-        except Exception:
-            pass
+        except Exception as e:
+            print str(e)
         self.q.put(res)
         try:
             self.event_generate(Event.REQUEST_COMPLETE, when='tail')
-        except TclError:
-            pass
+        except TclError as e:
+            print str(e)
 
 
 def main():
