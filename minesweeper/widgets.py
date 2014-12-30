@@ -3,7 +3,7 @@
 import Tkinter as tk
     
 class CounterLabel(tk.Label):
-    """A Label showing a integer.Change its value by calling functions.
+    """计数Label
     """
     def __init__(self, parent, init_value=0, step=1, **kw):
         tk.Label.__init__(self, parent, text=str(init_value), **kw)
@@ -29,8 +29,7 @@ class CounterLabel(tk.Label):
         return self._count_value
 
 class TimerLabel(CounterLabel):
-    """A Counter label using timer.In tkinter you can use widget.after callback function to timer event,
-    which is like setInterval function in Javascript.
+    """自动计数Label，可设置开始、停止
     """
     def __init__(self, parent, **kw):
         CounterLabel.__init__(self, parent, **kw)
@@ -63,7 +62,8 @@ class TimerLabel(CounterLabel):
 
 
 class CustomMapDialog(tk.Toplevel):
-    
+    """自定义地图参数对话框
+    """
     def __init__(self, parent, modal=True, callback=None):
         tk.Toplevel.__init__(self, parent)
         self.create_widgets()
