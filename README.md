@@ -1,8 +1,8 @@
 # PySnippet
 
-（个人Python代码片段）
+![Kinegratii](images/head_small.jpg)
 
-*Last Updated on 8th Feb.2015*
+*Last Updated on 4th June.2015*
 
 ## Python
 
@@ -26,12 +26,12 @@ The following reference links collects many books/blogs/websites for python guid
 
 This project contains lots of snippets when learning and working,which may be helpful for python beginners.
 
-### 基础语法
+### Basic Practices for Gramar
 
-* [`basic/for_else_demo.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/for_else_demo.py) （for-else用法示例）
-* [`basic/ab_gucess.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/ab_gucess.py)（xAyB猜数字游戏）
+* [`basic/for_else_demo.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/for_else_demo.py) 
+* [`basic/ab_gucess.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/ab_gucess.py)
 
-### json -- python对象和json数据转化
+### Json
 
 ```python
 
@@ -40,15 +40,14 @@ This project contains lots of snippets when learning and working,which may be he
     json.dumps(data)
 ```
 
-> [`obj2json`](https://github.com/kinegratii/PySnippet/tree/master/obj2json) （嵌套对象转化为JSON，自定义JSONEncoder）
+> [`obj2json`](https://github.com/kinegratii/PySnippet/tree/master/obj2json) A object-nested JSONEncoder
 
-### Tkinter -- Python内置的GUI工具库
+### Tkinter -  A Buildin GUI
 
 
-* [`basic/calculator.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/calculator.py) （tk计算器）
-* [`minesweeper`](https://github.com/kinegratii/minesweeper)（扫雷游戏tk版） 
+* [`basic/calculator.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/calculator.py)
 
-### urllib2 -- 获取网络数据和爬虫基础
+### urllib2 -- Network
 
 ```python
     
@@ -63,14 +62,14 @@ This project contains lots of snippets when learning and working,which may be he
         print str(e)
 ```
 
-### re -- 正则表达式
+### re -  Regular expression operations
 
-* [`tk_file_download`](https://github.com/kinegratii/PySnippet/tree/master/tk_file_download)（文件下载tk版）
-* [`ip_query`](https://github.com/kinegratii/PySnippet/tree/master/ip_query)（IP归属地查询tk版）
+* [`tk_file_download`](https://github.com/kinegratii/PySnippet/tree/master/tk_file_download)
+* [`ip_query`](https://github.com/kinegratii/PySnippet/tree/master/ip_query)
 
-### Socket/SocketServer/Threading -- 网络编程和多线程
+### Socket/SocketServer/Threading
 
-* [`tcp2tcp`](https://github.com/kinegratii/PySnippet/tree/master/tcp2tcp)（TCP数据双向中转器）
+* [`tcp2tcp`](https://github.com/kinegratii/PySnippet/tree/master/tcp2tcp)
 
 ```python
 
@@ -79,10 +78,10 @@ This project contains lots of snippets when learning and working,which may be he
 	        SocketServer.TCPServer.__init__(self, (LOCAL_HOST, bind_port), handler)
 ```
 
-### py2exe -- 部署打包
+### py2exe
 
-* [`py_pack/py2exe_tk_setup.py`](https://github.com/kinegratii/PySnippet/blob/master/py_pack/py2exe_tk_setup.py) (py2exe打包tk程序打包脚本）
-* [`py_pack/cx_tk_setup.py`](https://github.com/kinegratii/PySnippet/blob/master/py_pack/cx_tk_setup.py) (cx_freeze打包tk程序打包脚本）
+* [`py_pack/py2exe_tk_setup.py`](https://github.com/kinegratii/PySnippet/blob/master/py_pack/py2exe_tk_setup.py) A demo for py2exe
+* [`py_pack/cx_tk_setup.py`](https://github.com/kinegratii/PySnippet/blob/master/py_pack/cx_tk_setup.py) A demo for cx_freeze
 
 ```python
 
@@ -103,15 +102,40 @@ This project contains lots of snippets when learning and working,which may be he
 	      )
 ```
  
-## How To Use
-
-### Useage
+## Useage
 
 This Project consists of independently packages/folder and each package can be ran by itself.Read the READ.md file under each package/folder.
 
-### License
+## License
 
-This project is based on MIT License (MIT).
+
+```
+	
+The MIT License (MIT)
+
+Copyright (c) 2014 kinegratii(kinegratii@gmail.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+
 
 ## Contacts
 
