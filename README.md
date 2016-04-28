@@ -1,8 +1,6 @@
 # PySnippet
 
-![Kinegratii](images/head_small.jpg)
-
-*Last Updated on 10th April.2016*
+*Last Updated on 28th April.2016*
 
 ## 关于本项目
 
@@ -82,6 +80,8 @@ SOFTWARE.
 
 
 ## 联系
+
+![Kinegratii](images/head_small.jpg)
 
 Author : Kinegratii
 
