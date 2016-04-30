@@ -1,3 +1,14 @@
+# 基于tkinter的ip查询
+
+## 实现
+
+- 使用`urllib2`模块实现HTTP请求
+- tkinter自定义事件:使用`event_generate`方法触发事件
+- 使用`Queue`传递数据
+
+## 代码
+
+```
 #coding=utf8
 
 import re
@@ -24,7 +35,7 @@ class App(Frame):
 
         self.item = ('country','area', 'region', 'city', 'isp', 'ip', 'validate_msg')
         self.data = {k:StringVar() for k in self.item }
-        
+
         Label(self, text='IP地址查询').grid(row=0,column=0, columnspan=5)
         Label(self, text='地址').grid(row=1, column=0, columnspan=1)
         Entry(self, textvariable=self.data['ip']).grid(row=1, column=1, columnspan=4)
@@ -90,3 +101,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+```
+
+## 效果图
+
+![ip查询](..\images\ip_query.png)

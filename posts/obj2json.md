@@ -47,22 +47,88 @@ class User(object):
 
 `json.dumps(obj, default=obj2dict)`
 
-## 后续
+## 代码
 
-### 序列化
+### obj2json模块
 
-* 现在是一个比较简单的样子，还有一些更加高级的内容，比如只需输出部分字段，字符串格式化、自定义键名称等等。
+```
+#coding=utf8
+"""将对象转化为JSON格式，支持对象的属性又是另一个的嵌套情况
+"""
+import json
 
-* 关于嵌套对象的序列化也有去了解Django的一些源码，基本思想是一致的，只不过把递归部分放在数据转化里面，因为它还需要其他序列化其他格式。
+def obj2dict(obj):
+    # 基本数据类型，直接返回
+    if not hasattr(obj,'__dict__'):
+        return obj
+    res = {}
+    for k,v in obj.__dict__.items():
+        if k.startswith('-'):
+            continue
+        if isinstance(v,list):
+            ele = [obj2dict(item) for item in v]
+        else:
+            ele = obj2dict(v)
+        res[k] = ele
+    return res
 
-### 反序列化
+class NestedObjJsonEncoder(json.JSONEncoder):
 
-* 关于反序列化，既然有序列化，怎么能没有反序列化呢，后来发现还是不写了。也试着写了一些代码，按照上面写了个相反的函数 `dict2obj（dict,cls）`，想按照同样的方法套在 `load` 方法上，才发现参数不一致！！ `object_hook` 和 `object_hooks` 没有cls参数，要么在dict数据中，要么在回调函数直接硬编码。有想过用装饰器把 `dict2obj`包一层，将cls作为函数的参数，不过这好像对递归函数又有些问题。
-
-* 序列化和反序列化是相反的过程，应该相互考虑对方的“感受”。上面的序列化的做法就像只顾自己的一样，自己输出的数据根本不打算还原回来，这也是反序化写着比较费劲的原因之一吧。
-
+    def default(self, obj):
+        return obj2dict(obj)
 
 
-### 作者
+def main():
+    class A(object):
+        def __init__(self, name,age):
+            self.name = name
+            self.age = age
 
-By Kinegratii
+    class B(object):
+        def __init__(self,name,stu):
+            self.name = name
+            self.stu = stu
+
+    b = B('bob',A('fe',10))
+    b1 = B('nincy', A('by',20))
+    #Result:{"stu": {"age": 10, "name": "fe"}, "name": "bob"}
+    print json.dumps(b,cls=NestedObjJsonEncoder)
+
+    #[{"stu": {"age": 10, "name": "fe"}, "name": "bob"}, {"stu": {"age": 20, "name": "by"}, "name": "nincy"}]
+    print json.dumps([b,b1], default=obj2dict)
+
+if __name__ == '__main__':
+    main()
+```
+
+### 使用例子
+
+```
+#coding=utf8
+import json
+from obj2json import obj2dict
+
+class A(object):
+
+    def __init__(self, name, b):
+        self.name = name
+        self.b = b
+
+class B(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+b1 = B(2,6)
+print json.dumps(b1, default=obj2dict)
+
+b_list = (B(1,3),B(2,5))
+print json.dumps(b_list, default=obj2dict)
+#  [{"y": 3, "x": 1}, {"y": 5, "x": 2}]
+
+a = A('bob', b1)
+print json.dumps(a, default=obj2dict)
+
+b1 = B(b1,b1)
+print json.dumps(b1, default=obj2dict)
+```

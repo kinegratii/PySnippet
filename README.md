@@ -1,52 +1,39 @@
 # PySnippet
 
-*Last Updated on 28th April.2016*
+*Last Updated on 30th April.2016*
 
-## 关于本项目
+## 关于本Repository
 
 这里包含了本人学习Python过程中的一些笔记，内容涉及各个方面。主要形式有：
 
-- 资源
-- 代码
-- 文章
+- 代码code
+- 资源resources
+- 文章posts
+- 项目projects
 
-## 资源
 
-### 入门资料
-
-* [Python-Guide](http://docs.python-guide.org/en/latest/intro/learning/)
-* [BeginnersGuide/NonProgrammers - Python Wiki](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
-* [Offical Python Guide](https://docs.python.org/2/tutorial/index.html)
-* [Tkinter 8.5 Reference:a GUI for python](http://www.nmt.edu/tcc/help/pubs/tkinter/)
-* [An Introduction to Tkinter(Work in Progress)](http://effbot.org/tkinterbook/)
 
 ## 代码
 
-### 基本语法
+更多详见[code\README.md](codes/README.md)
 
-- [`basic/for_else_demo.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/for_else_demo.py) for...else语法
-- [`basic/ab_gucess.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/ab_gucess.py)
-- [`obj2json`](https://github.com/kinegratii/PySnippet/tree/master/obj2json) A object-nested JSONEncoder
+## 资源
 
-### Tkinter-PythonGUI编程
-
-
-* [`basic/calculator.py`](https://github.com/kinegratii/PySnippet/blob/master/basic/calculator.py) 计算器
-* [`tk_file_download`](https://github.com/kinegratii/PySnippet/tree/master/tk_file_download) 文件下载,自定义事件
-* [`ip_query`](https://github.com/kinegratii/PySnippet/tree/master/ip_query) 结合urllib2d的ip查询
-
-### Socket编程
-
-* [`tcp2tcp`](https://github.com/kinegratii/PySnippet/tree/master/tcp2tcp) 端口转发器
-
-### python打包
-
-* [`py_pack/py2exe_tk_setup.py`](https://github.com/kinegratii/PySnippet/blob/master/py_pack/py2exe_tk_setup.py) py2exe 打包
-* [`py_pack/cx_tk_setup.py`](https://github.com/kinegratii/PySnippet/blob/master/py_pack/cx_tk_setup.py) cx_freeze 打包
+- 标准模块
+- Python打包
+- django开发
+- pelican静态博客生成器
+- python2和python3
+- pyqt
 
 ## 文章
 
-> 待续
+- [tk_file_download](posts/tk_file_download.md)  文件下载,自定义事件
+- [ip_query](posts/ip_query.md) 结合urllib2d的ip查询
+
+## 项目
+- [Python打包](projects/py_pack/)
+- [`tcp2tcp`](https://github.com/kinegratii/PySnippet/tree/master/tcp2tcp) 端口转发器
 
 ## License
 
